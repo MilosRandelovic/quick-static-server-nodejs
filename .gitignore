@@ -4,3 +4,7 @@ npm-debug.log
 
 # hidden files
 .DS_Store
+
+# public content
+public/*
+!public/README.md
