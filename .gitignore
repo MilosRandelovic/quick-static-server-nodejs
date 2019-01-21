@@ -1,0 +1,6 @@
+# npm auto generated stuff
+node_modules
+npm-debug.log
+
+# hidden files
+.DS_Store
