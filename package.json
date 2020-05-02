@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
+    "postinstall": "mkdir -p public",
     "test": "echo \"Error: no test specified\" && exit 1",
     "reset": "rm -rf public/{,.[!.],..?}*"
   },
