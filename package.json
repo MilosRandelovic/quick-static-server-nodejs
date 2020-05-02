@@ -1,18 +1,19 @@
 {
-  "name": "quick-server",
+  "name": "quick-static-server-nodejs",
   "version": "1.0.0",
-  "description": "Quick Node.js Server",
+  "description": "Quick Node.js Server for static content",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "reset": "rm -rf public/{,.[!.],..?}*"
   },
   "author": "Miloš Ranđelović",
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4"
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9"
+    "nodemon": "^2.0.3"
   }
 }
