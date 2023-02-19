@@ -1,22 +1,20 @@
-const express = require('express');
-const path = require('path');
-const bodyParser = require('body-parser');
+import express from "express";
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 // Log all requests
-app.all('*', (request, response, next) => {
-  console.log(request.method + ': ' + request.originalUrl);
+app.all("*", (request, response, next) => {
+  console.log(`${request.method}: ${request.originalUrl}`);
   next(); // pass control to the next handler
 });
 
 // Routing handlers
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 // Serve static HTML and other content
-app.use(express.static(path.resolve(path.join(__dirname, '/public'))));
+app.use(express.static("public"));
 
 // Handle errors
 app.use((error, request, response, next) => {
@@ -28,5 +26,5 @@ app.use((error, request, response, next) => {
 
 // Start the server
 app.listen(port, () => {
-  console.log('Server started: ' + port);
+  console.log("Server started: " + port);
 });
