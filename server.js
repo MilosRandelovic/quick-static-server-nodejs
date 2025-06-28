@@ -4,23 +4,19 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Log all requests
-app.all("*", (request, response, next) => {
+app.use((request, _, next) => {
   console.log(`${request.method}: ${request.originalUrl}`);
-  next(); // pass control to the next handler
+  next();
 });
 
-// Routing handlers
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-
-// Serve static HTML and other content
+// Serve static content from the "public" folder
 app.use(express.static("public"));
 
 // Handle errors
-app.use((error, request, response, next) => {
+app.use((error, _, response, __) => {
   console.error(error);
   response
-    .status(error.status || 500)
+    .status(error.status ?? 500)
     .json({ status: error.status, message: error.message });
 });
 
